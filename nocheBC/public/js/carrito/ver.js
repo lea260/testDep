@@ -1,6 +1,7 @@
 (function ($) {
   $(document).ready(function () {
     let carrito = JSON.parse(localStorage.getItem("carrito"));
+    //$("#carrito").text(carrito.length);
     carrito.forEach((element) => {
       //let insert = `<button type="button" class="btn btn-primary">${element.id}</button>`
       let insert02 = `<div class="col-lg-4 col-md-6 col-sm-6 col-xs-4 p-3"
@@ -22,7 +23,11 @@
         </div><!-- end col --><?php }`;
       $("#carritoId").after(insert02);
     });
+    /*for (let index = 0; index < array.length; index++) {
 
+        
+        
+      }*/
     $("body").on("click", ".btnEliminar", function () {
       //console.log("entro");
       let articuloId = $(this).data("articuloId");
@@ -46,36 +51,14 @@
               localStorage.setItem("carrito", JSON.stringify(carrito));
               //console.log("probando");
             }
-            $("#cantidadElemCarrito").text(carrito.length);
+            //$("#cantidadElemCarrito").text(carrito.length);
           });
           //$("#cantidadElemCarrito").text(carrito.length);
         }
       }
     }); //end body
 
-    /*carrito save */
-    let url = document.getElementById("url").value;
-    console.log(url);
-    let headers = { "Content-Type": "application/json;charset=utf-8" };
-    $("body").on("click", "save", function () {
-      let carrito = JSON.parse(localStorage.getItem("carrito"));
-      alert("carrito");
-      $.ajax({
-        url: `${url}apiCarrito/save`,
-        headers: headers,
-        type: "POST",
-        data: JSON.stringify({ lista: carrito }),
-        dataType: "json",
-        success: function (data) {
-          localStorage.setItem("carrito", JSON.stringify([]));
-
-          alert("Items added");
-        },
-        error: function (e) {
-          console.log(e.message);
-        },
-      });
-    }); //end body
+    //http://localhost/prophp3bj/proyectoPHPComun/Apicarrito/completarCarrito
   });
 
   $("body").on("click", "#save", function (event) {
@@ -102,11 +85,10 @@
         console.log("exito");
         //
         //carritoId;
-        $("#carritoId").html("");
         $("#carritoId").html(`<div id="carritoId"><p>
         ${data.Mensage} id: ${id}  </p></div>`);
         localStorage.setItem("carrito", JSON.stringify([]));
-        //alert("pedido agregado con exito" + data.PedidoID);
+
         //console.log($lista);
       })
       .fail(function (jqXHR, textStatus, errorThrown) {
