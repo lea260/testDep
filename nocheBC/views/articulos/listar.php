@@ -56,9 +56,9 @@
 
 
   <!-- importo el javascript-->
-  <script src=" <?php echo constant('URL'); ?>public/js/articulos/listar.js">
+  <script src="<?php echo constant('URL'); ?>public/js/articulos/listar.js">
   </script>
-  <!--<script src="<?php echo constant('URL'); ?>/public/js/main.js"></script> -->
+
 
 
 </body>

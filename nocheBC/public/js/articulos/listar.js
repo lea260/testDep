@@ -1,8 +1,9 @@
 (function ($) {
+  var $lista = [];
   $(document).ready(function () {
-    var $lista = [];
     let url = $("#url").val();
     let urlReq = url + "apiarticulos/listar";
+    //console.log(urlReq);
     //console.log("url: "+urlReq);
     //console.log(param);
     let headers = { "Content-Type": "application/json;charset=utf-8" };
@@ -10,22 +11,24 @@
     $.ajax({
       url: urlReq,
       headers: headers,
-      type: "POST",
-      data: data,
+      type: "GET",
+      data: JSON.stringify(data),
       dataType: "json",
     })
       .done(function (data) {
         //$listaArticulos = data.datos;
         $lista = data.lista;
+        console.log($lista);
         //console.log($lista);
       })
       .fail(function (jqXHR, textStatus, errorThrown) {
-        //console.log(textStatus);
+        console.log(textStatus);
+        console.log(errorThrown);
       });
 
     $(".btnAgregar").each(function (index) {
       $(this).on("click", function () {
-        //console.log("hola");
+        console.log($lista);
         //let articuloId = this.dataset.articuloId;
         //obtengo el id del articulo, mediante
         let $id = $(this).data("articuloId");

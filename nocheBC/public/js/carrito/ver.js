@@ -102,6 +102,7 @@
         console.log("exito");
         //
         //carritoId;
+        $("#carritoId").html("");
         $("#carritoId").html(`<div id="carritoId"><p>
         ${data.Mensage} id: ${id}  </p></div>`);
         localStorage.setItem("carrito", JSON.stringify([]));
