@@ -1,7 +1,7 @@
 <?php
 
 //define('URL', 'http://localhost/mvc/');
-define('URL', 'https://' . $_SERVER['HTTP_HOST'] . '/nocheBC/');
+define('URL', 'https://' . $_SERVER['HTTP_HOST'] . '/');
 
 //conexion a la base de datos
 define('HOST', 'localhost');
