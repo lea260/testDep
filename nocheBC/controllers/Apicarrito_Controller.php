@@ -22,7 +22,7 @@ class Apicarrito_Controller extends Controller
             $resultado = $this->model->save($lista, $usuario);
 
             $respuesta = [
-                "Mensage" => "Carrito Actulizado",
+                "Mensage" => "Carrito Actualizado",
                 "datos" => $lista,
                 "totalResultados" => count($lista),
                 "usuario" => $usuario,
