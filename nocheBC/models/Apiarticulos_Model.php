@@ -1,7 +1,5 @@
 <?php
 
-require_once 'entidades/itemDto.php';
-
 #require_once 'entidades/alumno.php';
 require_once 'entidades/articulo.php';
 
