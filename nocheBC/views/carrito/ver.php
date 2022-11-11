@@ -37,7 +37,7 @@
 
 
     <!-- importo el javascript-->
-    <script src=" <?php echo constant('URL'); ?>public/js/carrito/ver.js"></script>
+    <script src="<?php echo constant('URL'); ?>public/js/carrito/ver.js"></script>
 
 
 
