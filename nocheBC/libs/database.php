@@ -18,7 +18,7 @@ class Database
          *
          */
 
-        $path   = dirname(__FILE__) . '/../';
+        $path   = dirname(dirname(__FILE__));
         $dotenv = Dotenv\Dotenv::createImmutable($path);
         $dotenv->load();
         //var_dump($_ENV);
@@ -31,7 +31,7 @@ class Database
         $this->charset  = constant('CHARSET');
          */
         $this->host     = $_ENV['HOST'];
-        $this->port     = $_ENV['PORT'];
+        $this->port     = $_ENV['PORT_DB'];
         $this->db       = $_ENV['DB'];
         $this->user     = $_ENV['USER'];
         $this->password = $_ENV['PASSWORD'];
