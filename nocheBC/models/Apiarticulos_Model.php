@@ -3,7 +3,7 @@
 #require_once 'entidades/alumno.php';
 require_once 'entidades/articulo.php';
 
-class Apiarticulos_Model extends Model
+class ApiArticulos_Model extends Model
 {
 
     public function __construct()
