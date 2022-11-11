@@ -30,13 +30,14 @@ class Apicarrito_Controller extends Controller
             ];
             $this->view->respuesta = json_encode($respuesta);
             if ($resultado == false) {
-                http_response_code(400);
+                //http_response_code(400);
                 $this->view->respuesta = json_encode([
                     "resultado" => $resultado,
                     "respuesta" => "error al completar el pedido",
                 ]);
             } else {
-                http_response_code(200);
+                //http_response_code(200);
+
             }
             $this->view->render('apicarrito/save');
             //code...
