@@ -18,9 +18,9 @@ class Database
          *
          */
 
-        $path   = dirname(dirname(__FILE__));
-        $dotenv = Dotenv\Dotenv::createImmutable($path);
-        $dotenv->load();
+        //$path   = dirname(dirname(__FILE__));
+        //$dotenv = Dotenv\Dotenv::createImmutable($path);
+        //$dotenv->load();
         //var_dump($_ENV);
 
         /*$this->host     = constant('HOST');
