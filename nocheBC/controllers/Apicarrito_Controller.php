@@ -1,7 +1,7 @@
  <?php
 
 require_once 'entidades/itemDto.php';
-class ApiCarrito_Controller extends Controller
+class Apicarrito_Controller extends Controller
 {
     public function save()
     {
