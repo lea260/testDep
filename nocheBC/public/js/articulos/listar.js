@@ -59,6 +59,9 @@
           carritoArr.push(item);
           localStorage.setItem("carrito", JSON.stringify(carritoArr));
         }
+        if (carritoStr) {
+          $("#cantidadElemCarrito").text(carritoArr.length);
+        }
       });
     });
   }); //end ready
