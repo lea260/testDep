@@ -82,7 +82,7 @@
     event.preventDefault();
 
     let url = $("#url").val();
-    let urlReq = url + "apicarrito/save";
+    let urlReq = url + "apiCarrito/save";
     //event.Preven
     let carrito = JSON.parse(localStorage.getItem("carrito"));
     let data = { lista: carrito, usuario_id: 1 };
