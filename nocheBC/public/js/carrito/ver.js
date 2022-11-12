@@ -21,7 +21,7 @@
           </div>
           </div><!-- end card -->
         </div><!-- end col --><?php }`;
-      $("#carritoId").after(insert02);
+      $("#carritoId").append(insert02);
     });
     /*for (let index = 0; index < array.length; index++) {
 
@@ -80,14 +80,21 @@
         //dataType : 'text'
       })
         .done(function (data) {
+          console.log("respuesta");
+          console.log(data);
+          console.log(data.resultado);
+          alert("pedido agregado con exito" + data.resultado);
+          //resultado
           localStorage.setItem("carrito", JSON.stringify([]));
           $("#cantidadElemCarrito").text(0);
-          $("#itemsCarrito").html(`<div id="carritoid"></div>`);
+          $("#carritoId").html(`<div id="carritoid"></div>`);
           $("#numPedido").text(data.resultado);
           $("#resPedido").css("display", "block");
         })
         .fail(function (jqXHR, textStatus, errorThrown) {
+          console.log(jqXHR);
           console.log(textStatus);
+          console.log(errorThrown);
         });
     }); //end btnCompletarCarrito
     //http://localhost/prophp3bj/proyectoPHPComun/Apicarrito/completarCarrito

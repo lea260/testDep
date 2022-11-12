@@ -43,7 +43,6 @@ class Apicarrito_Controller extends Controller
                 "totalResultados" => count($lista),
                 "usuario" => $usuario,
                 "resultado" => $resultado,
-                "token" => $token,
             ];
             $this->view->respuesta = json_encode($respuesta);
             if ($resultado == -1) {
@@ -65,6 +64,7 @@ class Apicarrito_Controller extends Controller
             //echo "<h1>" . $e->getMessage() . "</h1>";
             //echo $headers;
             $this->view->codigo = 200;
+            $this->view->render('apicarrito/completarCarrito');
 
             //http_response_code(401);
         }
