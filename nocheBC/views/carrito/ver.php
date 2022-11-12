@@ -28,7 +28,7 @@
 
     </div><!-- end row -->
 
-    <button id="save" class="btn btn-primary">guardar</button><!-- end container-->
+    <button id="btnCompletarCarrito" class="btn btn-primary">guardar</button><!-- end container-->
 
 
     <?php require 'views/footer.php';?>
