@@ -62,10 +62,12 @@
       //alert(token);
       let url = $("#url").val();
       let urlReq = url + "apicarrito/completarCarrito";
-
+      console.log("requesting carrito");
       //$token = localStorage.getItem('token');
       let headers = { "Content-Type": "application/json;charset=utf-8" };
       //'Authorization': `Bearer ${token}`};
+      carrito = JSON.parse(localStorage.getItem("carrito"));
+      console.log(carrito);
 
       var data = { lista: carrito, usuario: 1 };
       //console.log(data);

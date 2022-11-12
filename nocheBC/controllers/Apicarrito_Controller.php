@@ -25,14 +25,14 @@ class Apicarrito_Controller extends Controller
             //convierto en un array asociativo de php
             $datos          = json_decode($json);
             $listaArticulos = $datos->lista;
-            $usuario        = $datos->usuario_id;
+            $usuario        = intval($datos->usuario);
             //$lista = array();
             $lista = [];
             foreach ($listaArticulos as $key => $obj) {
                 $articulo           = new ItemDto();
-                $articulo->id       = $obj->id;
-                $articulo->cantidad = $obj->cantidad;
-                $articulo->precio   = $obj->precio;
+                $articulo->id       = intval($obj->id);
+                $articulo->cantidad = intval($obj->cantidad);
+                $articulo->precio   = floatval($obj->precio);
                 $lista[]            = $articulo;
                 //array_push($lista, $articulo);
             }
@@ -46,22 +46,27 @@ class Apicarrito_Controller extends Controller
                 "token" => $token,
             ];
             $this->view->respuesta = json_encode($respuesta);
-            if ($resultado == false) {
-                http_response_code(400);
+            if ($resultado == -1) {
+                $this->view->codigo = 400;
+                //http_response_code(400);
                 $this->view->respuesta = json_encode([
                     "resultado" => $resultado,
                     "respuesta" => "error al completar el pedido",
                 ]);
             } else {
-                http_response_code(200);
+                $this->view->codigo = 200;
+                // http_response_code(200);
             }
-            $this->view->render('api/carrito/completarcarrito');
+
+            $this->view->render('apicarrito/completarCarrito');
             //code...
 
         } catch (Exception $e) {
-            echo "<h1>" . $e->getMessage() . "</h1>";
-            echo $headers;
-            http_response_code(401);
+            //echo "<h1>" . $e->getMessage() . "</h1>";
+            //echo $headers;
+            $this->view->codigo = 200;
+
+            //http_response_code(401);
         }
     }
 

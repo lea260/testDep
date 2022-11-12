@@ -17,6 +17,8 @@ class Apicarrito_Model extends Model
         //INSERT INTO `item` ( `articulo_id`, `cantidad`, `precio`, `pedido_id`) VALUES ('2', '5', '25', '6');
         $pdo = $this->db->connect();
         $pdo->beginTransaction();
+        $lastInsertId = -1;
+
         //'2021-09-23 16:27:40')
         try {
             $fecha = date('Y-m-d H:i:s', time());
@@ -43,13 +45,13 @@ class Apicarrito_Model extends Model
             //:descripcion, :precio, :fecha
             //$query->close();
             $pdo->commit();
-            return $lastInsertId;
+
         } catch (PDOException $e) {
             $pdo->rollBack();
             return false;
         } finally {
             $pdo = null;
         }
+        return $lastInsertId;
     }
-
 }
